@@ -1,0 +1,35 @@
+{
+	"name": "grunt-recess",
+	"version": "0.1.0",
+	"description": "Grunt task to lint and minify CSS or LESS",
+	"keywords": [
+		"gruntplugin",
+		"grunt",
+		"css",
+		"less",
+		"recess"
+	],
+	"homepage": "https://github.com/sindresorhus/grunt-recess",
+	"bugs": "https://github.com/sindresorhus/grunt-recess/issues",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "http://sindresorhus.com"
+	},
+	"main": "grunt.js",
+	"bin": "bin/grunt-recess",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/sindresorhus/grunt-recess.git"
+	},
+	"dependencies": {
+		"grunt": "~0.3.9",
+		"recess": "~1.0.4"
+	},
+	"engines": {
+		"node": ">=0.6.0"
+	},
+	"licenses": {
+		"type": "MIT"
+	}
+}

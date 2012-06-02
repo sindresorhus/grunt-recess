@@ -2,16 +2,6 @@ module.exports = function( grunt ) {
 	'use strict';
 
 	grunt.initConfig({
-		lint: {
-			files: [
-				'grunt.js',
-				'tasks/**/*.js'
-			]
-		},
-		watch: {
-			files: '<config:lint.files>',
-			tasks: 'default'
-		},
 		recess: {
 			pass: {
 				src: [
@@ -24,6 +14,16 @@ module.exports = function( grunt ) {
 					'test/fixtures/invalid.css'
 				]
 			}
+		},
+		lint: {
+			files: [
+				'grunt.js',
+				'tasks/**/*.js'
+			]
+		},
+		watch: {
+			files: '<config:lint.files>',
+			tasks: 'default'
 		},
 		jshint: {
 			options: {
@@ -48,6 +48,6 @@ module.exports = function( grunt ) {
 
 	grunt.loadTasks('tasks');
 
-	grunt.registerTask('default', 'lint recess:pass recess:fail');
+	grunt.registerTask( 'default', 'lint recess:pass recess:fail' );
 
 };

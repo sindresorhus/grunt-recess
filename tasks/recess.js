@@ -51,7 +51,8 @@ module.exports = function( grunt ) {
 			if ( min.length ) {
 				if ( dest ) {
 					// Concat files
-					grunt.file.write( dest, min.join( separator ) );
+					var css = min.reverse();
+					grunt.file.write( dest, css.join( separator ) );
 					grunt.log.writeln( 'File "' + dest + '" created.' );
 					if ( compress ) {
 						grunt.helper( 'min_max_info', min.join( separator ), max.join( separator ) );

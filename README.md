@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/sindresorhus/grunt-recess.png)](http://travis-ci.org/sindresorhus/grunt-recess)
 # grunt-recess
 
 [Grunt][grunt] task to lint and minify CSS or LESS, using the Twitter [RECESS][recess] module:

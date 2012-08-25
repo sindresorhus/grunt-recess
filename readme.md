@@ -79,16 +79,17 @@ You can specify more than one `src` to concat the files.
 
 ```javascript
 // Default
-compile: false,
-compress: false,
-noIDs: true,
-noJSPrefix: true,
-noOverqualifying: true,
-noUnderscores: true,
-noUniversalSelectors: true,
-prefixWhitespace: true,
-strictPropertyOrder: true,
-zeroUnits: true
+compile: false 				// Compiles CSS or LESS. Fixes white space and sort order.
+compress: false				// Compress your compiled code
+noIDs: true					// Doesn't complain about using IDs in your stylesheets
+noJSPrefix: true			// Doesn't complain about styling .js- prefixed classnames
+noOverqualifying: true		// Doesn't complain about overqualified selectors (ie: div#foo.bar)
+noUnderscores: true			// Doesn't complain about using underscores in your class names
+noUniversalSelectors: true	// Doesn't complain about using the universal * selector
+prefixWhitespace: true		// Adds whitespace prefix to line up vender prefixed properties
+strictPropertyOrder: true	// Complains if not strict property order
+stripColors: false			// Strip colors from the Terminal output
+zeroUnits: true				// Doesn't complain if you add units to values of 0
 ```
 
 

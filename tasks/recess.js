@@ -26,7 +26,9 @@ module.exports = function( grunt ) {
 
 			// RECESS returns an object when passed a single file,
 			// and a array of objects when passed multiple files
-			data = Array.isArray( data ) ? data : [ data ];
+			// .reverse() the array because of bug:
+			// https://github.com/twitter/recess/issues/43
+			data = Array.isArray( data ) ? data.reverse() : [ data ];
 
 			if ( err ) {
 				grunt.fail.fatal( err );

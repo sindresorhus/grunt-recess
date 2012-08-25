@@ -23,8 +23,8 @@
 		"url": "git://github.com/sindresorhus/grunt-recess.git"
 	},
 	"dependencies": {
-		"grunt": "~0.3.9",
-		"recess": "~1.0.4"
+		"grunt": "~0.3.12",
+		"recess": "~1.1.6"
 	},
 	"engines": {
 		"node": ">=0.6.0"

@@ -10,21 +10,49 @@ module.exports = function( grunt ) {
 		var options = this.data.options || {};
 		var compress = options.compress;
 		var separator = compress ? '' : lf + lf;
+		var padLine = function (line) {
+			var num = (line + '. ');
+			var space = '';
+			
+			grunt.utils._.times(10 - num.length, function () { space += ' ' })
+			
+			return (space + num);
+		};
 
 		recess( files, options, function( err, data ) {
 			var min = [];
 			var max = [];
+			var errormsg = '\n';
 
 			// RECESS returns an object when passed a single file,
 			// and a array of objects when passed multiple files.
 			// ^ Bug: https://github.com/twitter/recess/issues/44
 			//
 			// .reverse() the array because of bug:
-			// https://github.com/twitter/recess/issues/42
+			// https://github.com/twitter/recess/issues/43
 			data = Array.isArray( data ) ? data.reverse() : [ data ];
 
 			if ( err ) {
-				grunt.fail.fatal( err );
+				err.forEach(function (error, index) {
+
+					if (error.type == 'Parse') {
+					  // parse error
+					  errormsg += "Parser error" + (error.filename ? ' in ' + error.filename : '') + '\n';
+					} else {
+					  // other exception
+					  errormsg += error.name + ": " + error.message + ' of ' + error.filename + '\n';
+					}
+
+					// if extract - then log it
+					error.extract && error.extract.forEach(function (line, index) {
+					  errormsg += padLine(error.line + index) + line + '\n';
+					})
+
+					// add extra line for readability after error log
+					errormsg += '\n';
+				})
+
+				grunt.fail.fatal(errormsg);
 			}
 
 			data.forEach(function( item ) {

@@ -1,7 +1,7 @@
 module.exports = function( grunt ) {
 	'use strict';
 
-	grunt.registerMultiTask('recess', 'Grunt plugin to lint and minify CSS or LESS.', function() {
+	grunt.registerMultiTask('recess', 'Lint and minify CSS and LESS', function() {
 		var recess = require('recess');
 		var lf = grunt.utils.linefeed;
 		var cb = this.async();
@@ -23,15 +23,7 @@ module.exports = function( grunt ) {
 			// https://github.com/twitter/recess/issues/42
 			data = Array.isArray( data ) ? data.reverse() : [ data ];
 
-			if ( err ) {
-				grunt.fail.fatal( err );
-			}
-
 			data.forEach(function( item ) {
-				if ( item.errors.length ) {
-					grunt.fail.warn( item.errors.join('') );
-				}
-
 				if ( item.options.compile ) {
 					min.push( item.output );
 					max.push( item.data );
@@ -39,7 +31,7 @@ module.exports = function( grunt ) {
 				} else if ( item.output[1].indexOf('Perfect!') !== -1 ) {
 					grunt.log.writeln( item.output.join( lf ) );
 				} else {
-					grunt.fail.warn( lf + item.output.join( lf ) );
+					grunt.fail.warn( item.output.join( lf ) );
 				}
 			});
 
@@ -53,7 +45,7 @@ module.exports = function( grunt ) {
 						grunt.helper( 'min_max_info', min.join( separator ), max.join( separator ) );
 					}
 				} else {
-					grunt.fail.fatal('No destination specified. This is required when enabling options.compile.');
+					grunt.fail.fatal('No destination specified. Required when options.compile is enabled.');
 				}
 			}
 

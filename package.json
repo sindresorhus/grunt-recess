@@ -7,7 +7,10 @@
 		"grunt",
 		"css",
 		"less",
-		"recess"
+		"recess",
+		"lint",
+		"compile",
+		"preprocess"
 	],
 	"homepage": "https://github.com/sindresorhus/grunt-recess",
 	"bugs": "https://github.com/sindresorhus/grunt-recess/issues",
@@ -26,7 +29,7 @@
 		"recess": "~1.1.6"
 	},
 	"devDependencies": {
-		"grunt": "~0.3.12"
+		"grunt": "~0.3.16"
 	},
 	"engines": {
 		"node": ">=0.8.0"

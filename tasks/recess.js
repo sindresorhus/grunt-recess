@@ -11,6 +11,11 @@ module.exports = function( grunt ) {
 		var compress = options.compress;
 		var separator = compress ? '' : lf + lf;
 
+		if ( !files.length ) {
+			grunt.log.writeln('No existing files in this target.');
+			return cb();
+		}
+
 		recess( files, options, function( err, data ) {
 			var min = [];
 			var max = [];

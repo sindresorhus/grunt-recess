@@ -1,6 +1,6 @@
 # grunt-recess
 
-[Grunt][grunt] task to lint and minify CSS or LESS, using the Twitter [RECESS][recess] module:
+[Grunt][grunt] task to lint and minify CSS and LESS, using the Twitter [RECESS][recess] module:
 
 > Developed at Twitter to support our internal styleguide, RECESS is a simple, attractive code quality tool for CSS built on top of LESS.
 

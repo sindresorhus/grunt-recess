@@ -1,10 +1,9 @@
 {
 	"name": "grunt-recess",
-	"version": "0.1.1",
-	"description": "Grunt task to lint and minify CSS or LESS",
+	"version": "0.1.2",
+	"description": "Lint and minify CSS and LESS",
 	"keywords": [
 		"gruntplugin",
-		"grunt",
 		"css",
 		"less",
 		"recess",
@@ -29,7 +28,7 @@
 		"recess": "~1.1.6"
 	},
 	"devDependencies": {
-		"grunt": "~0.3.16"
+		"grunt": "~0.3.17"
 	},
 	"engines": {
 		"node": ">=0.8.0"

@@ -19,7 +19,6 @@
 		"url": "http://sindresorhus.com"
 	},
 	"main": "grunt.js",
-	"bin": "bin/grunt-recess",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/sindresorhus/grunt-recess.git"

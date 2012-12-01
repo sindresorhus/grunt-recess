@@ -33,7 +33,7 @@ module.exports = function( grunt ) {
 					min.push( item.output );
 					max.push( item.data );
 				// Extract status and check
-				} else if ( item.output[1].indexOf('Perfect!') !== -1 ) {
+				} else if ( item.output[1] && item.output[1].indexOf('Perfect!') !== -1 ) {
 					grunt.log.writeln( item.output.join( lf ) );
 				} else {
 					grunt.fail.warn( item.output.join( lf ) );

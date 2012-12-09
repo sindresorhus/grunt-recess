@@ -3,7 +3,7 @@ module.exports = function( grunt ) {
 
 	grunt.registerMultiTask('recess', 'Lint and minify CSS and LESS', function() {
 		var recess = require('recess');
-		var lf = grunt.utils.linefeed;
+		var lf = grunt.util.linefeed;
 		var cb = this.async();
 		var files = grunt.file.expandFiles( this.file.src );
 		var dest = this.file.dest;

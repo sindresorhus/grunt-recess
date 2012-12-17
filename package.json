@@ -1,6 +1,6 @@
 {
 	"name": "grunt-recess",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "Lint and minify CSS and LESS",
 	"keywords": [
 		"gruntplugin",
@@ -24,10 +24,12 @@
 		"url": "git://github.com/sindresorhus/grunt-recess.git"
 	},
 	"dependencies": {
-		"recess": "~1.1.6"
+		"recess": "~1.1.6",
+		"grunt-lib-legacyhelpers": "~0.1.x"
 	},
 	"devDependencies": {
-		"grunt": "~0.3.17"
+		"grunt": "~0.4.0",
+		"grunt-contrib-jshint": "~0.1.x"
 	},
 	"engines": {
 		"node": ">=0.8.0"

@@ -15,17 +15,15 @@ module.exports = function( grunt ) {
 				]
 			}
 		},
-		lint: {
-			files: [
-				'grunt.js',
-				'tasks/**/*.js'
-			]
-		},
 		watch: {
 			files: '<config:lint.files>',
 			tasks: 'default'
 		},
 		jshint: {
+      lint: [
+        'grunt.js',
+        'tests/**/*.js'
+      ],
 			options: {
 				es5: true,
 				esnext: true,
@@ -47,7 +45,8 @@ module.exports = function( grunt ) {
 	});
 
 	grunt.loadTasks('tasks');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
-	grunt.registerTask( 'default', 'lint recess:pass recess:fail' );
+	grunt.registerTask( 'default', ['jshint', 'recess:pass', 'recess:fail'] );
 
 };

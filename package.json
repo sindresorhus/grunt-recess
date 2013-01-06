@@ -1,40 +1,40 @@
 {
-	"name": "grunt-recess",
-	"version": "0.1.5",
-	"description": "Lint and minify CSS and LESS",
-	"keywords": [
-		"gruntplugin",
-		"css",
-		"less",
-		"recess",
-		"lint",
-		"compile",
-		"preprocess"
-	],
-	"homepage": "https://github.com/sindresorhus/grunt-recess",
-	"bugs": "https://github.com/sindresorhus/grunt-recess/issues",
-	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "http://sindresorhus.com"
-	},
-	"main": "Gruntfile.js",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/sindresorhus/grunt-recess.git"
-	},
-	"dependencies": {
-		"recess": "~1.1.6",
-		"grunt-lib-legacyhelpers": "~0.1.0"
-	},
-	"devDependencies": {
-		"grunt": "~0.4.0",
-		"grunt-contrib-jshint": "~0.1.0"
-	},
-	"engines": {
-		"node": ">=0.8.0"
-	},
-	"licenses": {
-		"type": "MIT"
-	}
+  "name": "grunt-recess",
+  "version": "0.2.0",
+  "description": "Lint and minify CSS and LESS",
+  "keywords": [
+    "gruntplugin",
+    "css",
+    "less",
+    "recess",
+    "lint",
+    "compile",
+    "preprocess"
+  ],
+  "homepage": "https://github.com/sindresorhus/grunt-recess",
+  "bugs": "https://github.com/sindresorhus/grunt-recess/issues",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "http://sindresorhus.com"
+  },
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sindresorhus/grunt-recess.git"
+  },
+  "dependencies": {
+    "recess": "~1.1.6",
+    "grunt-lib-legacyhelpers": "~0.1.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.1.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": {
+    "type": "MIT"
+  }
 }

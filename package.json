@@ -18,18 +18,18 @@
 		"email": "sindresorhus@gmail.com",
 		"url": "http://sindresorhus.com"
 	},
-	"main": "grunt.js",
+	"main": "Gruntfile.js",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/sindresorhus/grunt-recess.git"
 	},
 	"dependencies": {
 		"recess": "~1.1.6",
-		"grunt-lib-legacyhelpers": "~0.1.x"
+		"grunt-lib-legacyhelpers": "~0.1.0"
 	},
 	"devDependencies": {
 		"grunt": "~0.4.0",
-		"grunt-contrib-jshint": "~0.1.x"
+		"grunt-contrib-jshint": "~0.1.0"
 	},
 	"engines": {
 		"node": ">=0.8.0"

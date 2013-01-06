@@ -9,6 +9,8 @@
 
 ## Getting Started
 
+**Requires grunt 0.4**
+
 Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-recess`
 
 Then add this line to your project's `grunt.js` gruntfile:
@@ -89,6 +91,7 @@ noUniversalSelectors: true	// Doesn't complain about using the universal * selec
 prefixWhitespace: true		// Adds whitespace prefix to line up vender prefixed properties
 strictPropertyOrder: true	// Complains if not strict property order
 stripColors: false			// Strip colors from the Terminal output
+// ^ Deprecated. Instead pass `--no-color` to grunt
 zeroUnits: true				// Doesn't complain if you add units to values of 0
 ```
 

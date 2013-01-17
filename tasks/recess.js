@@ -5,9 +5,9 @@ module.exports = function (grunt) {
 		var helpers = require('grunt-lib-legacyhelpers').init(grunt);
 		var lf = grunt.util.linefeed;
 		var cb = this.async();
-		var files = this.file.src;
-		var dest = this.file.dest;
-		var options = this.data.options || {};
+		var files = this.filesSrc;
+		var dest = this.data.dest;
+		var options = this.options();
 		var compress = options.compress;
 		var separator = compress ? '' : lf + lf;
 

@@ -5,8 +5,7 @@ module.exports = function (grunt) {
 		var helpers = require('grunt-lib-legacyhelpers').init(grunt);
 		var lf = grunt.util.linefeed;
 		var cb = this.async();
-		var files = this.filesSrc;
-		var dest = this.data.dest;
+		var files = this.files;
 		var options = this.options();
 		var compress = options.compress;
 		var separator = compress ? '' : lf + lf;
@@ -16,46 +15,52 @@ module.exports = function (grunt) {
 			return cb();
 		}
 
-		recess(files, options, function (err, data) {
-			var min = [];
-			var max = [];
+		grunt.util.async.forEachSeries(files, function (el, cb2) {
+			var dest = el.dest;
 
-			// RECESS returns an object when passed a single file,
-			// and a array of objects when passed multiple files.
-			// ^ Bug: https://github.com/twitter/recess/issues/44
-			//
-			// .reverse() the array because of bug:
-			// https://github.com/twitter/recess/issues/42
-			data = Array.isArray(data) ? data.reverse() : [data];
+			recess(el.src, options, function (err, data) {
+				var min = [];
+				var max = [];
 
-			data.forEach(function (item) {
-				if (item.options.compile) {
-					min.push(item.output);
-					max.push(item.data);
-				// Extract status and check
-				} else if (item.output[1] && item.output[1].indexOf('Perfect!') !== -1) {
-					grunt.log.writeln(item.output.join(lf));
-				} else {
-					grunt.fail.warn(item.output.join(lf));
-				}
-			});
+				// RECESS returns an object when passed a single file,
+				// and a array of objects when passed multiple files.
+				// ^ Bug: https://github.com/twitter/recess/issues/44
+				//
+				// .reverse() the array because of bug:
+				// https://github.com/twitter/recess/issues/42
+				data = Array.isArray(data) ? data.reverse() : [data];
 
-			if (min.length) {
-				if (dest) {
-					// Concat files
-					grunt.file.write(dest, min.join(separator));
-					grunt.log.writeln('File "' + dest + '" created.');
-
-					if (compress) {
-						/*jshint camelcase:false */
-						helpers.min_max_info(min.join(separator), max.join(separator));
+				data.forEach(function (item) {
+					if (item.options.compile) {
+						min.push(item.output);
+						max.push(item.data);
+					// Extract status and check
+					} else if (item.output[1] && item.output[1].indexOf('Perfect!') !== -1) {
+						grunt.log.writeln(item.output.join(lf));
+					} else {
+						grunt.fail.warn(item.output.join(lf));
 					}
-				} else {
-					grunt.fail.fatal('No destination specified. Required when options.compile is enabled.');
-				}
-			}
+				});
 
-			cb();
+				if (min.length) {
+					if (dest) {
+						// Concat files
+						grunt.file.write(dest, min.join(separator));
+						grunt.log.writeln('File "' + dest + '" created.');
+
+						if (compress) {
+							/*jshint camelcase:false */
+							helpers.min_max_info(min.join(separator), max.join(separator));
+						}
+					} else {
+						grunt.fail.fatal('No destination specified. Required when options.compile is enabled.');
+					}
+				}
+
+				cb2();
+			});
+		}, function (err) {
+			cb(!err);
 		});
 	});
 };

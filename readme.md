@@ -9,20 +9,17 @@
 
 ## Getting Started
 
-**Requires grunt 0.4**
+If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-recess`
-
-Then add this line to your project's `grunt.js` gruntfile:
-
-```javascript
-grunt.loadNpmTasks('grunt-recess');
+```shell
+npm install grunt-recess --save-dev
 ```
+
+[grunt]: http://gruntjs.com
+[Getting Started]: https://github.com/gruntjs/grunt/wiki/Getting-started
 
 
 ## Documentation
-
-This grunt task is a [multi task](https://github.com/cowboy/grunt/blob/master/docs/types_of_tasks.md#multi-tasks-%E2%9A%91), which means you can specify multiple subtasks and grunt will iterate over them. The `dist` below is a subtask, you could e.g. create a `dev` subtask to handle stuff while developing.
 
 
 ### Example usage
@@ -44,16 +41,15 @@ recess: {
 ```javascript
 recess: {
 	dist: {
-		src: ['src/main.less'],
-		dest: 'dist/main.css',
 		options: {
 			compile: true
-		}
+		},
+		'dist/main.css': ['src/main.less']
 	}
 }
 ```
 
-`dest` is only needed when `compile: true`, it won't output any warnings in this mode.
+A destination is only needed when `compile: true`. It won't output any warnings in this mode.
 You can also specify `.less` files and they will be compiled.
 
 
@@ -62,19 +58,18 @@ You can also specify `.less` files and they will be compiled.
 ```javascript
 recess: {
 	dist: {
-		src: [
-			'src/main.css',
-			'src/component.css'
-		],
-		dest: 'dist/combined.css',
 		options: {
 			compile: true
-		}
+		},
+		'dist/combined.css': [
+			'src/main.css',
+			'src/component.css'
+		]
 	}
 }
 ```
 
-You can specify more than one `src` to concat the files.
+You can specify multiple source files to concat them.
 
 
 ### Options
@@ -112,6 +107,4 @@ MIT License
 (c) [Sindre Sorhus](http://sindresorhus.com)
 
 
-[grunt]: https://github.com/cowboy/grunt
 [recess]: https://github.com/twitter/recess
-[getting_started]: https://github.com/cowboy/grunt/blob/master/docs/getting_started.md

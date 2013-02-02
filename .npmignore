@@ -1,9 +1,6 @@
 .npmignore
 .editorconfig
 .jshintrc
-.jshintignore
 .gitattributes
-*.sublime-project
-*.sublime-workspace
 test
-grunt.js
+Gruntfile.js

@@ -18,14 +18,13 @@
     "email": "sindresorhus@gmail.com",
     "url": "http://sindresorhus.com"
   },
-  "main": "Gruntfile.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/sindresorhus/grunt-recess.git"
   },
   "dependencies": {
     "recess": "~1.1.6",
-    "grunt-lib-legacyhelpers": "~0.1.0"
+    "grunt-lib-contrib": "~0.5.2"
   },
   "devDependencies": {
     "grunt": "~0.4.0",

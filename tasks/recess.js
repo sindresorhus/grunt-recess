@@ -1,14 +1,13 @@
 'use strict';
 module.exports = function (grunt) {
 	grunt.registerMultiTask('recess', 'Lint and minify CSS and LESS', function () {
+		var helpers = require('grunt-lib-contrib').init(grunt);
 		var recess = require('recess');
-		var helpers = require('grunt-lib-legacyhelpers').init(grunt);
 		var lf = grunt.util.linefeed;
 		var cb = this.async();
 		var files = this.files;
 		var options = this.options();
-		var compress = options.compress;
-		var separator = compress ? '' : lf + lf;
+		var separator = options.compress ? '' : lf + lf;
 
 		if (!files.length) {
 			grunt.log.writeln('No existing files in this target.');
@@ -48,9 +47,8 @@ module.exports = function (grunt) {
 						grunt.file.write(dest, min.join(separator));
 						grunt.log.writeln('File "' + dest + '" created.');
 
-						if (compress) {
-							/*jshint camelcase:false */
-							helpers.min_max_info(min.join(separator), max.join(separator));
+						if (options.compress) {
+							helpers.minMaxInfo(min.join(separator), max.join(separator));
 						}
 					} else {
 						grunt.fail.fatal('No destination specified. Required when options.compile is enabled.');

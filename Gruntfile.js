@@ -2,16 +2,28 @@
 module.exports = function (grunt) {
 	grunt.initConfig({
 		recess: {
+			compile: {
+				options: {
+					compile: true
+				},
+				files: {
+					'test/main.css': ['test/fixtures/valid.less']
+				}
+			},
 			pass: {
-				src: [
-					'test/fixtures/valid.less',
-					'test/fixtures/valid.css'
-				]
+				files: {
+					src: [
+						'test/fixtures/valid.less',
+						'test/fixtures/valid.css'
+					]
+				}
 			},
 			fail: {
-				src: [
-					'test/fixtures/invalid.css'
-				]
+				files: {
+					src: [
+						'test/fixtures/invalid.css'
+					]
+				}
 			}
 		},
 		jshint: {
@@ -29,5 +41,5 @@ module.exports = function (grunt) {
 	grunt.loadTasks('tasks');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
-	grunt.registerTask('default', ['jshint', 'recess:pass', 'recess:fail']);
+	grunt.registerTask('default', ['jshint', 'recess']);
 };

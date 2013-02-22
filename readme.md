@@ -46,7 +46,9 @@ recess: {
 		options: {
 			compile: true
 		},
-		'dist/main.css': ['src/main.less']
+		files: {
+			'dist/main.css': ['src/main.less']
+		}
 	}
 }
 ```
@@ -63,10 +65,12 @@ recess: {
 		options: {
 			compile: true
 		},
-		'dist/combined.css': [
-			'src/main.css',
-			'src/component.css'
-		]
+		files: {
+			'dist/combined.css': [
+				'src/main.css',
+				'src/component.css'
+			]
+		}
 	}
 }
 ```

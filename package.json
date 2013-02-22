@@ -22,13 +22,19 @@
     "type": "git",
     "url": "git://github.com/sindresorhus/grunt-recess.git"
   },
+  "scripts": {
+    "test": "grunt"
+  },
   "dependencies": {
     "recess": "~1.1.6",
     "grunt-lib-contrib": "~0.5.2"
   },
   "devDependencies": {
     "grunt": "~0.4.0",
-    "grunt-contrib-jshint": "0.1.1rc6"
+    "grunt-contrib-jshint": "~0.1.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
   },
   "engines": {
     "node": ">=0.8.0"

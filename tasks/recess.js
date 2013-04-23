@@ -18,10 +18,11 @@ module.exports = function (grunt) {
 		// Duplicate its error logging style
 		if (err.type === 'Parse') {
 			// parse error
-			grunt.log.error('Parser error'.red + (err.filename ? ' in ' + err.filename : '') + '\n');
+			grunt.log.error('Parser error'.red + (err.filename ? ' in ' + err.filename.yellow : '') + '\n');
 		} else {
 			// other exception
-			grunt.log.error(err.name && err.name.red + ': ' + err.message + ' of ' + err.filename.yellow + '\n');
+			grunt.log.error((err.name ? err.name.red + ': ' : '') + err.message + 
+				(err.filename ? ' in ' + err.filename.yellow : '') + '\n')
 		}
 
 		// if extract - then log it

@@ -21,8 +21,8 @@ module.exports = function (grunt) {
 			grunt.log.error('Parser error'.red + (err.filename ? ' in ' + err.filename.yellow : '') + '\n');
 		} else {
 			// other exception
-			grunt.log.error((err.name ? err.name.red + ': ' : '') + err.message + 
-				(err.filename ? ' in ' + err.filename.yellow : '') + '\n')
+			grunt.log.error((err.name ? err.name.red + ': ' : '') + err.message +
+				(err.filename ? ' in ' + err.filename.yellow : '') + '\n');
 		}
 
 		// if extract - then log it

@@ -87,7 +87,7 @@ module.exports = function (grunt) {
 						grunt.log.writeln('File "' + dest + '" created.');
 
 						if (options.compress) {
-							helpers.minMaxInfo(min.join(separator), max.join(separator));
+							helpers.minMaxInfo(min.join(separator), max.join(separator), 'min');
 						}
 					} else {
 						grunt.fail.fatal('No destination specified. Required when options.compile is enabled.');

@@ -41,5 +41,8 @@
   },
   "licenses": {
     "type": "MIT"
-  }
+  },
+  "files": [
+    "tasks/recess.js"
+  ]
 }

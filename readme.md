@@ -1,7 +1,5 @@
 # grunt-recess
 
-Requires grunt 0.4. Use version 0.1.4 for grunt 0.3 compatibility
-
 [Grunt][grunt] task to lint and minify CSS and LESS, using the Twitter [RECESS][recess] module:
 
 > Developed at Twitter to support our internal styleguide, RECESS is a simple, attractive code quality tool for CSS built on top of LESS.
@@ -14,7 +12,7 @@ Requires grunt 0.4. Use version 0.1.4 for grunt 0.3 compatibility
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
 ```shell
-npm install grunt-recess --save-dev
+npm install --save-dev grunt-recess
 ```
 
 [grunt]: http://gruntjs.com
@@ -91,8 +89,6 @@ noUnderscores: true			// Doesn't complain about using underscores in your class 
 noUniversalSelectors: true	// Doesn't complain about using the universal * selector
 prefixWhitespace: true		// Adds whitespace prefix to line up vender prefixed properties
 strictPropertyOrder: true	// Complains if not strict property order
-stripColors: false			// Strip colors from the Terminal output
-// ^ Deprecated. Instead pass `--no-color` to grunt
 zeroUnits: true				// Doesn't complain if you add units to values of 0
 ```
 
@@ -102,15 +98,9 @@ zeroUnits: true				// Doesn't complain if you add units to values of 0
 Grunt currently doesn't have a way to test tasks directly. You can test this task by running `grunt` and check that it passes on the valid files and fails on the invalid.
 
 
-## Contribute
-
-In lieu of a formal styleguide, take care to maintain the existing coding style.
-
-
 ## License
 
-MIT License
-(c) [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)
 
 
 [recess]: https://github.com/twitter/recess

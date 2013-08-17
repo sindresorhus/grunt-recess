@@ -60,14 +60,6 @@ module.exports = function (grunt) {
 					err.forEach(logError);
 				}
 
-				// RECESS returns an object when passed a single file,
-				// and a array of objects when passed multiple files.
-				// ^ Bug: https://github.com/twitter/recess/issues/44
-				//
-				// .reverse() the array because of bug:
-				// https://github.com/twitter/recess/issues/42
-				data = Array.isArray(data) ? data.reverse() : [data];
-
 				data.forEach(function (item) {
 					if (item.options.compile) {
 						min.push(item.output);

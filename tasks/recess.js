@@ -41,8 +41,14 @@ module.exports = function (grunt) {
 		var lf = grunt.util.linefeed;
 		var cb = this.async();
 		var files = this.files;
-		var options = this.options();
+		var options = this.options({
+			banner: '',
+			compress: false,
+			footer: ''
+		});
 		var separator = options.compress ? '' : lf + lf;
+		var banner = grunt.template.process(options.banner);
+		var footer = grunt.template.process(options.footer);
 
 		if (!files.length) {
 			grunt.log.writeln('No existing files in this target.');
@@ -75,7 +81,7 @@ module.exports = function (grunt) {
 				if (min.length) {
 					if (dest) {
 						// Concat files
-						grunt.file.write(dest, min.join(separator));
+						grunt.file.write(dest, banner + min.join(separator) + footer);
 						grunt.log.writeln('File "' + dest + '" created.');
 
 						if (options.compress) {

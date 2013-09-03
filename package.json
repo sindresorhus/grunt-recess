@@ -1,6 +1,6 @@
 {
   "name": "grunt-recess",
-  "version": "0.3.5",
+  "version": "0.4.0",
   "description": "Lint and minify CSS and LESS",
   "keywords": [
     "gruntplugin",

@@ -44,15 +44,27 @@ module.exports = function (grunt) {
 		var options = this.options({
 			banner: '',
 			compress: false,
-			footer: ''
+			footer: '',
+			report: null
 		});
 		var separator = options.compress ? '' : lf + lf;
 		var banner = grunt.template.process(options.banner);
 		var footer = grunt.template.process(options.footer);
+		var reporter = false;
 
 		if (!files.length) {
 			grunt.log.writeln('No existing files in this target.');
 			return cb();
+		}
+
+		// hook the reporting in...
+		if (options.report && options.report.reporter) {
+			reporter = {};
+			reporter.proto = require('./lib/reporters/' + options.report.reporter + '.js');
+			reporter.mapping = options.report.mapping ? grunt.file.readJSON(options.report.mapping) : {};
+			reporter.inst = new reporter.proto(reporter.mapping);
+			options.compress = false;
+			options.compile = true;
 		}
 
 		grunt.util.async.forEachSeries(files, function (el, cb2) {
@@ -66,8 +78,12 @@ module.exports = function (grunt) {
 					err.forEach(logError);
 				}
 
+				if (reporter) {
+					reporter.inst.startReport();
+				}
+
 				data.forEach(function (item) {
-					if (item.options.compile) {
+					if (item.options.compile || reporter) {
 						min.push(item.output);
 						max.push(item.data);
 					// Extract status and check
@@ -75,6 +91,23 @@ module.exports = function (grunt) {
 						grunt.log.writeln(item.output.join(lf));
 					} else {
 						grunt.fail.warn(item.output.join(lf));
+					}
+
+					if (reporter) {
+						reporter.inst.startFile(dest);
+
+						if (item.definitions && item.definitions.length) {
+							// loop over definitions to get errors
+							item.definitions.forEach(function (definition) {
+								if (definition.errors && definition.errors.length) {
+									definition.errors.forEach(function (definitionErr) {
+										// report that error
+										reporter.inst.logError(definitionErr);
+									});
+								}
+							});
+						}
+						reporter.inst.endFile();
 					}
 				});
 
@@ -89,6 +122,20 @@ module.exports = function (grunt) {
 						}
 					} else {
 						grunt.fail.fatal('No destination specified. Required when options.compile is enabled.');
+					}
+				}
+
+				if (reporter) {
+					// Write report to the report file, if wanted
+					reporter.inst.endReport();
+					if (options.report.output) {
+						options.report.outputFile = grunt.template.process(options.report.output);
+						options.report.outputDir = require('path').dirname(options.report.outputFile);
+						if (!grunt.file.exists(options.report.outputDir)) {
+							grunt.file.mkdir(options.report.outputDir);
+						}
+						grunt.file.write(options.report.outputFile, reporter.inst.report);
+						grunt.log.ok('Report "' + options.report.outputFile + '" created.');
 					}
 				}
 

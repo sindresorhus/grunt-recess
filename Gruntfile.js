@@ -10,6 +10,17 @@ module.exports = function (grunt) {
 					'test/main.css': ['test/fixtures/valid.less']
 				}
 			},
+			checkstyle: {
+				options: {
+					report: {
+						reporter: 'checkstyle',
+						output: 'test/checkstyle/report.xml',
+						mapping: 'test/fixtures/recess-checkstyle.json'
+					}
+				},
+				src: ['test/fixtures/valid.less', 'test/fixtures/valid.css', 'test/fixtures/invalid.css'],
+				dest: 'test/checkstyle/referencable.css'
+			},
 			pass: {
 				files: {
 					src: [
@@ -32,8 +43,8 @@ module.exports = function (grunt) {
 			},
 			all: [
 				'Gruntfile.js',
-				'tasks/*.js',
-				'tests/*.js'
+				'tasks/**/*.js',
+				'tests/**/*.js'
 			]
 		}
 	});

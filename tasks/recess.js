@@ -50,7 +50,7 @@ module.exports = function (grunt) {
 		var separator = options.compress ? '' : lf + lf;
 		var banner = grunt.template.process(options.banner);
 		var footer = grunt.template.process(options.footer);
-		var reporter = {};
+		var reporter = false;
 
 		if (!files.length) {
 			grunt.log.writeln('No existing files in this target.');
@@ -59,6 +59,7 @@ module.exports = function (grunt) {
 
 		// hook the reporting in...
 		if (options.report && options.report.reporter) {
+			reporter = {};
 			reporter.proto = require('./lib/reporters/' + options.report.reporter + '.js');
 			reporter.mapping = options.report.mapping ? grunt.file.readJSON(options.report.mapping) : {};
 			reporter.inst = new reporter.proto(reporter.mapping);

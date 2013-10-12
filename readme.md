@@ -90,6 +90,7 @@ noUniversalSelectors: true	// Doesn't complain about using the universal * selec
 prefixWhitespace: true		// Adds whitespace prefix to line up vender prefixed properties
 strictPropertyOrder: true	// Complains if not strict property order
 zeroUnits: true				// Doesn't complain if you add units to values of 0
+includePath: mixed			// accepts an additional directory path to look for @import:ed LESS files in.  Accepts a string or an array of strings.
 ```
 
 

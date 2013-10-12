@@ -30,14 +30,14 @@ module.exports = function (grunt) {
 				}
 			},
 			include: {
-			    options: {
-			        includePath: 'externalDependency'
-			    },
-			    files: {
-			        src: [
+				options: {
+					includePath: 'test/externalDependency'
+				},
+				files: {
+					src: [
 						'test/fixtures/include.less'
 					]
-			    }
+				}
 			},
 			fail: {
 				files: {

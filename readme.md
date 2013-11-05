@@ -15,6 +15,14 @@ If you haven't used [grunt][] before, be sure to check out the [Getting Started]
 npm install --save-dev grunt-recess
 ```
 
+Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
+
+```js
+grunt.loadNpmTasks('grunt-recess');
+```
+
+*Tip: the [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks) module makes it easier to load multiple grunt tasks.*
+
 [grunt]: http://gruntjs.com
 [Getting Started]: https://github.com/gruntjs/grunt/wiki/Getting-started
 

@@ -6,6 +6,8 @@
 
 > Incorporate it into your development process as a linter, or integrate it directly into your build system as a compiler, RECESS will keep your source looking clean and super manageable.
 
+**Problems with the output should be submitted on [RECESS issue tracker](https://github.com/twitter/recess/issues), not here.**
+
 
 ## Getting Started
 

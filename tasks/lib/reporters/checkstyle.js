@@ -1,5 +1,6 @@
 'use strict';
-var _ = require('underscore');
+var _ = require('lodash');
+
 var defaults = {
 	noIDs: 'error',
 	noJSPrefix: 'error',

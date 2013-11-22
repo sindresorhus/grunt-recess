@@ -1,18 +1,20 @@
 'use strict';
+var async = require('async');
+var _ = require('lodash');
+var recess = require('recess');
+
+function padLine(line) {
+	var num = line + '. ';
+	var space = '';
+
+	_.times(10 - num.length, function () {
+		space += ' ';
+	});
+
+	return (space + num).grey;
+}
+
 module.exports = function (grunt) {
-	var _ = grunt.util._;
-
-	function padLine(line) {
-		var num = line + '. ';
-		var space = '';
-
-		_.times(10 - num.length, function () {
-			space += ' ';
-		});
-
-		return (space + num).grey;
-	}
-
 	function logError(err) {
 		// RECESS doesn't log errors when `compile: true`
 		// Duplicate its error logging style
@@ -37,7 +39,6 @@ module.exports = function (grunt) {
 
 	grunt.registerMultiTask('recess', 'Lint and minify CSS and LESS', function () {
 		var helpers = require('grunt-lib-contrib').init(grunt);
-		var recess = require('recess');
 		var lf = grunt.util.linefeed;
 		var cb = this.async();
 		var files = this.files;
@@ -67,7 +68,7 @@ module.exports = function (grunt) {
 			options.compile = true;
 		}
 
-		grunt.util.async.forEachSeries(files, function (el, cb2) {
+		async.eachSeries(files, function (el, cb2) {
 			var dest = el.dest;
 
 			recess(el.src, options, function (err, data) {
@@ -90,7 +91,7 @@ module.exports = function (grunt) {
 					} else if (item.output[1] && item.output[1].indexOf('Perfect!') !== -1) {
 						grunt.log.writeln(item.output.join(lf));
 					} else {
-						grunt.fail.warn(item.output.join(lf));
+						grunt.warn(item.output.join(lf));
 					}
 
 					if (reporter) {

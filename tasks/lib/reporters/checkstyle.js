@@ -26,13 +26,12 @@ function CheckstyleReporter(options) {
 }
 
 CheckstyleReporter.prototype = {
-
 	constructor: CheckstyleReporter,
 
 	/**
 	 * Starts a checkstyle report.
 	 */
-	startReport: function() {
+	startReport: function () {
 		this.report = '<?xml version="1.0" encoding="UTF-8"?>\n';
 		this.report += '<checkstyle version="4.0.0">\n';
 	},
@@ -41,7 +40,7 @@ CheckstyleReporter.prototype = {
 	 * Ends a checkstyle report and returns XML as string.
 	 * @return {String} XML of checkstyle report
 	 */
-	endReport: function() {
+	endReport: function () {
 		this.report += '</checkstyle>\n';
 		return this.report;
 	},
@@ -50,14 +49,14 @@ CheckstyleReporter.prototype = {
 	 * Starts reporting errors of a source file.
 	 * @param {String} srcFile Filename of .less or .css source file
 	 */
-	startFile: function(srcFile) {
+	startFile: function (srcFile) {
 		this.report += '<file name="' + srcFile + '">\n';
 	},
 
 	/**
 	 * Ends reporting errors of a source file.
 	 */
-	endFile: function() {
+	endFile: function () {
 		this.report += '</file>\n';
 	},
 
@@ -65,7 +64,7 @@ CheckstyleReporter.prototype = {
 	 * Logs an error of the current source file.
 	 * @param {Object} err RECESS error object
 	 */
-	logError: function(err) {
+	logError: function (err) {
 		var mappedErr = this.translate(err);
 		this.report += '<error line="' + mappedErr.line + '"' + ' column="' + mappedErr.column + '"' + ' severity="' +
 			mappedErr.severity + '"' + ' message="' + _.escape(mappedErr.message) + '"' + ' source="' +
@@ -77,7 +76,7 @@ CheckstyleReporter.prototype = {
 	 * @param {Object} err RECESS error object
 	 * @return {Object} Checkstyle error object with properties 'line', 'column', 'severity', 'source', and 'message'
 	 */
-	translate: function(err) {
+	translate: function (err) {
 		return {
 			line: err.line || (err.extract.stripColors.match(/^\s*(\d+)/))[1] || 0,
 			column: err.column || 0,
@@ -90,10 +89,9 @@ CheckstyleReporter.prototype = {
 	/**
 	 * Flush the report to stdout
 	 */
-	flush: function() {
+	flush: function () {
 		console.log(this.report);
 	}
-
 };
 
 module.exports = CheckstyleReporter;

@@ -29,7 +29,8 @@
     "recess": "~1.1.6",
     "grunt-lib-contrib": "~0.6.0",
     "async": "~0.2.9",
-    "lodash": "~2.3.0"
+    "lodash": "~2.3.0",
+    "chalk": "~0.3.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",

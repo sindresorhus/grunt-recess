@@ -2,6 +2,7 @@
 var async = require('async');
 var _ = require('lodash');
 var recess = require('recess');
+var chalk = require('chalk');
 
 function padLine(line) {
 	var num = line + '. ';
@@ -11,7 +12,7 @@ function padLine(line) {
 		space += ' ';
 	});
 
-	return (space + num).grey;
+	return chalk.gray(space + num);
 }
 
 module.exports = function (grunt) {
@@ -20,11 +21,11 @@ module.exports = function (grunt) {
 		// Duplicate its error logging style
 		if (err.type === 'Parse') {
 			// parse error
-			grunt.log.error('Parser error'.red + (err.filename ? ' in ' + err.filename.yellow : '') + '\n');
+			grunt.log.error(chalk.red('Parser error') + (err.filename ? ' in ' + chalk.yellow(err.filename) : '') + '\n');
 		} else {
 			// other exception
-			grunt.log.error((err.name ? err.name.red + ': ' : '') + err.message +
-				(err.filename ? ' in ' + err.filename.yellow : '') + '\n');
+			grunt.log.error((err.name ? chalk.red(err.name) + ': ' : '') + err.message +
+				(err.filename ? ' in ' + chalk.yellow(err.filename) : '') + '\n');
 		}
 
 		// if extract - then log it

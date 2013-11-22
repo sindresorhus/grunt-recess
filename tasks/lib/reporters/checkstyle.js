@@ -1,5 +1,6 @@
 'use strict';
 var _ = require('lodash');
+var chalk = require('chalk');
 
 var defaults = {
 	noIDs: 'error',
@@ -78,11 +79,11 @@ CheckstyleReporter.prototype = {
 	 */
 	translate: function (err) {
 		return {
-			line: err.line || (err.extract.stripColors.match(/^\s*(\d+)/))[1] || 0,
+			line: err.line || (chalk.stripColor(err.extract).match(/^\s*(\d+)/))[1] || 0,
 			column: err.column || 0,
 			severity: this.options[err.type] || this.options.defaultError,
 			source: 'recess.' + err.type,
-			message: err.message.stripColors + (err.extract.stripColors ? err.extract.stripColors : '')
+			message: chalk.stripColor(err.message.stripColors) + chalk.stripColor(err.extract) ? chalk.stripColor(err.extract) : ''
 		};
 	},
 

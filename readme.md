@@ -1,4 +1,4 @@
-# PROBLEMS WITH THE OUTPUT SHOULD BE SUBMITTED ON [RECESS ISSUE TRACKER](HTTPS://GITHUB.COM/TWITTER/RECESS/ISSUES), NOT HERE.
+# PROBLEMS WITH THE OUTPUT SHOULD BE SUBMITTED ON [RECESS ISSUE TRACKER](https://github.com/twitter/recess/issues), NOT HERE.
 
 # grunt-recess [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 

@@ -100,9 +100,9 @@ includePath: mixed			// Additional paths to look for `@import`'ed LESS files.  A
 ```
 
 
-## Tests
+## gulp
 
-Grunt currently doesn't have a way to test tasks directly. You can test this task by running `grunt` and check that it passes on the valid files and fails on the invalid.
+You might want to check out [gulp-recess](https://github.com/sindresorhus/gulp-recess) which is a faster alternative to this task.
 
 
 ## License

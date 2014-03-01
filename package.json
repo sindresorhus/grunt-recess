@@ -22,10 +22,10 @@
   },
   "dependencies": {
     "recess": "^1.1.6",
-    "grunt-lib-contrib": "^0.6.0",
     "async": "^0.2.9",
     "lodash": "^2.4.1",
-    "chalk": "^0.4.0"
+    "chalk": "^0.4.0",
+    "maxmin": "^0.1.0"
   },
   "devDependencies": {
     "grunt": "^0.4.2",

@@ -3,6 +3,7 @@ var async = require('async');
 var _ = require('lodash');
 var recess = require('recess');
 var chalk = require('chalk');
+var maxmin = require('maxmin');
 
 function padLine(line) {
 	var num = line + '. ';
@@ -39,17 +40,13 @@ module.exports = function (grunt) {
 	}
 
 	grunt.registerMultiTask('recess', 'Lint and minify CSS and LESS', function () {
-		var helpers = require('grunt-lib-contrib').init(grunt);
-		var lf = grunt.util.linefeed;
 		var cb = this.async();
 		var files = this.files;
 		var options = this.options({
 			banner: '',
 			compress: false,
-			footer: '',
-			report: null
+			footer: ''
 		});
-		var separator = options.compress ? '' : lf + lf;
 		var banner = grunt.template.process(options.banner);
 		var footer = grunt.template.process(options.footer);
 		var reporter = false;
@@ -90,9 +87,9 @@ module.exports = function (grunt) {
 						max.push(item.data);
 					// Extract status and check
 					} else if (item.output[1] && item.output[1].indexOf('Perfect!') !== -1) {
-						grunt.log.writeln(item.output.join(lf));
+						grunt.log.writeln(item.output.join('\n'));
 					} else {
-						grunt.warn(item.output.join(lf));
+						grunt.warn(item.output.join('\n'));
 					}
 
 					if (reporter) {
@@ -116,11 +113,11 @@ module.exports = function (grunt) {
 				if (min.length) {
 					if (dest) {
 						// Concat files
-						grunt.file.write(dest, banner + min.join(separator) + footer);
+						grunt.file.write(dest, banner + min.join('\n\n') + footer);
 						grunt.log.writeln('File "' + dest + '" created.');
 
 						if (options.compress) {
-							helpers.minMaxInfo(min.join(separator), max.join(separator), 'min');
+							grunt.log.writeln(maxmin(max.join('\n\n'), min.join('\n\n'), true));
 						}
 					} else {
 						grunt.fail.fatal('No destination specified. Required when options.compile is enabled.');

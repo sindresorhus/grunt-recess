@@ -1,8 +1,8 @@
-# PROBLEMS WITH THE OUTPUT SHOULD BE SUBMITTED ON [RECESS ISSUE TRACKER](https://github.com/twitter/recess/issues), NOT HERE.
+# grunt-recess
 
-# grunt-recess [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+> Lint and minify CSS and LESS, using the Twitter [RECESS][recess] module.
 
-> Lint and minify CSS and LESS, using the Twitter [RECESS][recess] module:
+#### Problems with the output should be submitted on Recess [issue tracker](https://github.com/twitter/recess/issues).
 
 
 ## Getting Started

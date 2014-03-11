@@ -52,7 +52,7 @@ module.exports = function (grunt) {
 		var reporter = false;
 
 		if (!files.length) {
-			grunt.log.writeln('No existing files in this target.');
+			grunt.log.writeln('No destinations specified.');
 			return cb();
 		}
 
@@ -68,6 +68,12 @@ module.exports = function (grunt) {
 
 		async.eachSeries(files, function (el, cb2) {
 			var dest = el.dest;
+
+			if (!el.src.length) {
+				grunt.fail.fatal('No existing source files for destination "' + dest + '".');
+				cb2();
+				return;
+			}
 
 			recess(el.src, options, function (err, data) {
 				var min = [];

@@ -9,8 +9,8 @@
 
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
-```shell
-npm install --save-dev grunt-recess
+```bash
+$ npm install --save-dev grunt-recess
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -33,7 +33,7 @@ grunt.loadNpmTasks('grunt-recess');
 
 #### Lint
 
-```javascript
+```js
 recess: {
 	dist: {
 		src: ['src/main.css']
@@ -44,7 +44,7 @@ recess: {
 
 #### Lint and compile
 
-```javascript
+```js
 recess: {
 	dist: {
 		options: {
@@ -63,7 +63,7 @@ You can also specify `.less` files and they will be compiled.
 
 #### Lint, compile and concat
 
-```javascript
+```js
 recess: {
 	dist: {
 		options: {
@@ -107,7 +107,7 @@ You might want to check out [gulp-recess](https://github.com/sindresorhus/gulp-r
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
 
 
 [recess]: https://github.com/twitter/recess

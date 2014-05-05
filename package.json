@@ -21,15 +21,15 @@
     "test": "grunt"
   },
   "dependencies": {
-    "recess": "^1.1.6",
-    "async": "^0.2.9",
-    "lodash": "^2.4.1",
+    "async": "^0.8.0",
     "chalk": "^0.4.0",
-    "maxmin": "^0.1.0"
+    "lodash": "^2.4.1",
+    "maxmin": "^0.2.0",
+    "recess": "^1.1.6"
   },
   "devDependencies": {
     "grunt": "^0.4.2",
-    "grunt-contrib-jshint": "^0.8.0"
+    "grunt-contrib-jshint": "^0.10.0"
   },
   "peerDependencies": {
     "grunt": "^0.4.0"

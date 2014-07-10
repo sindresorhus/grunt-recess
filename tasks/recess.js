@@ -70,7 +70,7 @@ module.exports = function (grunt) {
 			var dest = el.dest;
 
 			if (!el.src.length) {
-				grunt.fail.fatal('No existing source files for destination "' + dest + '".');
+				grunt.warn('No existing source files for destination "' + dest + '".');
 				cb2();
 				return;
 			}
@@ -126,7 +126,7 @@ module.exports = function (grunt) {
 							grunt.log.writeln(maxmin(max.join('\n\n'), min.join('\n\n'), true));
 						}
 					} else {
-						grunt.fail.fatal('No destination specified. Required when options.compile is enabled.');
+						grunt.warn('No destination specified. Required when options.compile is enabled.');
 					}
 				}
 

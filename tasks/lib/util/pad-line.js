@@ -1,12 +1,8 @@
 'use strict';
+var _ = require('lodash');
+var chalk = require('chalk');
 
-var _ = require('lodash'),
-	chalk = require('chalk');
-
-var padLine;
-
-padLine = function(line)
-{
+var padLine = function (line) {
 	var num = line + '. ';
 	var space = '';
 

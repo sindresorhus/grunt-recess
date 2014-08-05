@@ -15,7 +15,6 @@ var defaults = {
 	defaultError: 'warning'
 };
 
-
 /**
  * Creates a new instance of CheckstyleReporter. CheckstyleReporter provides an API to
  * generate a checkstyle.xml report file from RECESS error objects.

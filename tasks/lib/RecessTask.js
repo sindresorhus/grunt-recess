@@ -1,16 +1,11 @@
 'use strict';
+var recess = require('recess');
+var grunt = require('grunt');
+var async = require('async');
+var maxmin = require('maxmin');
+var logError = require('./util/log-error');
 
-// External dependencies
-var recess = require('recess'),
-	grunt = require('grunt'),
-	async = require('async'),
-	maxmin = require('maxmin'),
-	logError = require(__dirname + '/util/log-error');
-
-var RecessTask;
-
-RecessTask = function(task)
-{
+var RecessTask = function (task) {
 	// Store reference to original task
 	this.task = task;
 
@@ -45,22 +40,15 @@ RecessTask.TASK_DESCRIPTION = 'Lint and minify CSS and LESS using RECESS';
  *
  * @param {*} grunt
  */
-RecessTask.registerWithGrunt = function(grunt)
-{
-	grunt.registerMultiTask(
-		RecessTask.TASK_NAME,
-		RecessTask.TASK_DESCRIPTION,
-		function() {
-			var task;
-
-			task = new RecessTask(this);
-
-			task.run();
-		});
+RecessTask.registerWithGrunt = function (grunt) {
+	grunt.registerMultiTask(RecessTask.TASK_NAME, RecessTask.TASK_DESCRIPTION, function () {
+		var task;
+		task = new RecessTask(this);
+		task.run();
+	});
 };
 
-RecessTask.prototype.run = function()
-{
+RecessTask.prototype.run = function () {
 	var cb = this.task.async();
 	var files = this.task.files;
 	var options = this.task.options(RecessTask.DEFAULT_OPTIONS);
@@ -71,7 +59,8 @@ RecessTask.prototype.run = function()
 
 	if (!files.length) {
 		grunt.log.writeln('No destinations specified.');
-		return cb();
+		cb();
+		return;
 	}
 
 	// hook the reporting in...

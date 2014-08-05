@@ -1,13 +1,9 @@
 'use strict';
+var grunt = require('grunt');
+var chalk = require('chalk' );
+var padLine = require('./pad-line');
 
-var grunt = require('grunt'),
-	chalk = require('chalk' ),
-	padLine = require(__dirname + '/pad-line');
-
-var logError;
-
-logError = function(err)
-{
+var logError = function (err) {
 	// RECESS doesn't log errors when `compile: true`
 	// Duplicate its error logging style
 	if (err.type === 'Parse') {

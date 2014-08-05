@@ -1,8 +1,8 @@
-# grunt-recess
+# grunt-recess [![Build Status](https://travis-ci.org/sindresorhus/grunt-recess.svg?branch=master)](https://travis-ci.org/sindresorhus/grunt-recess)
 
 > Lint and minify CSS and LESS, using the Twitter [RECESS][recess] module.
 
-#### Problems with the output should be submitted on Recess [issue tracker](https://github.com/twitter/recess/issues).
+##### Problems with the output should be submitted on Recess [issue tracker](https://github.com/twitter/recess/issues).
 
 
 ## Getting Started

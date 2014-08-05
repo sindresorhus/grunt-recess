@@ -47,6 +47,7 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+
 		jshint: {
 			options: {
 				jshintrc: '.jshintrc'
@@ -56,11 +57,20 @@ module.exports = function (grunt) {
 				'tasks/**/*.js',
 				'tests/**/*.js'
 			]
+		},
+
+		mochaTest: {
+			options: {
+				reporter: 'spec'
+			},
+			src: ['test/**/*.spec.js']
 		}
 	});
 
 	grunt.loadTasks('tasks');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-mocha-test');
 
+	grunt.registerTask('test', ['jshint', 'mochaTest']);
 	grunt.registerTask('default', ['jshint', 'recess']);
 };

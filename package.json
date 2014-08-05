@@ -18,7 +18,7 @@
   },
   "repository": "sindresorhus/grunt-recess",
   "scripts": {
-    "test": "grunt test"
+    "test": "mocha test/**/*.spec.js"
   },
   "dependencies": {
     "async": "^0.9.0",
@@ -30,11 +30,10 @@
   "devDependencies": {
     "chai": "^1.9.1",
     "grunt": "^0.4.2",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-mocha-test": "^0.11.0",
     "rewire": "^2.1.0",
     "sinon": "^1.10.3",
-    "sinon-chai": "^2.5.0"
+    "sinon-chai": "^2.5.0",
+    "mocha": "*"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"

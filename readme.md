@@ -1,6 +1,6 @@
 # grunt-recess [![Build Status](https://travis-ci.org/sindresorhus/grunt-recess.svg?branch=master)](https://travis-ci.org/sindresorhus/grunt-recess)
 
-> Lint and minify CSS and LESS, using the Twitter [RECESS][recess] module.
+> Lint and minify CSS and LESS, using Twitter [RECESS][recess]
 
 ##### Problems with the output should be submitted on Recess [issue tracker](https://github.com/twitter/recess/issues).
 
@@ -9,7 +9,7 @@
 
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
-```bash
+```sh
 $ npm install --save-dev grunt-recess
 ```
 
@@ -84,7 +84,7 @@ You can specify multiple source files to concat them.
 
 ### Options
 
-```javascript
+```js
 // Default
 compile: false 				// Compiles CSS or LESS. Fixes white space and sort order.
 compress: false				// Compress your compiled code
@@ -107,7 +107,7 @@ You might want to check out [gulp-recess](https://github.com/sindresorhus/gulp-r
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)
 
 
 [recess]: https://github.com/twitter/recess

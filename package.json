@@ -37,7 +37,7 @@
     "sinon-chai": "^2.5.0"
   },
   "peerDependencies": {
-    "grunt": "^0.4.0"
+    "grunt": ">=0.4.0"
   },
   "engines": {
     "node": ">=0.10.0"

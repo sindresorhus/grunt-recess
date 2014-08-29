@@ -17,11 +17,17 @@ $ npm install --save-dev grunt-recess
 ### Lint
 
 ```js
-recess: {
-	dist: {
-		src: ['src/main.css']
+require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
+
+grunt.initConfig({
+	recess: {
+		dist: {
+			src: ['src/main.css']
+		}
 	}
-}
+});
+
+grunt.registerTask('default', ['recess']);
 ```
 
 ### Lint and compile

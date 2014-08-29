@@ -1,20 +1,20 @@
 'use strict';
-
-var chai = require('chai'),
-	sinon = require('sinon'),
-	sinonChai = require('sinon-chai'),
-	rewire = require('rewire'),
-	grunt = require('grunt'),
-	_ = grunt.util._;
+var chai = require('chai');
+var sinon = require('sinon');
+var sinonChai = require('sinon-chai');
+var rewire = require('rewire');
+var grunt = require('grunt');
+var _ = grunt.util._;
 
 var RecessTask = rewire('../tasks/lib/RecessTask');
 
-// Setup test tools
 chai.should();
 chai.use(sinonChai);
 
-describe('RecessTask', function() {
-	var mockRecess, createMockTask, mockTask;
+describe('RecessTask', function () {
+	var mockRecess
+	var createMockTask
+	var mockTask;
 
 	/**
 	 * Helper method for creating a mock task.
@@ -22,8 +22,7 @@ describe('RecessTask', function() {
 	 * @param {Function} [done]
 	 * @returns {*}
 	 */
-	createMockTask = function(done)
-	{
+	createMockTask = function (done) {
 		return {
 			_taskOptions: {
 				compile: true,
@@ -39,16 +38,16 @@ describe('RecessTask', function() {
 					}
 				}
 			],
-			options: function(defs) {
+			options: function (defs) {
 				return _.defaults(this._taskOptions, defs);
 			},
-			async: function() {
+			async: function () {
 				return done;
 			}
 		};
 	};
 
-	beforeEach(function() {
+	beforeEach(function () {
 		// Mock the 'recess' library (we want to test the grunt-recess task, not external code!)
 		mockRecess = sinon.stub();
 		RecessTask.__set__('recess', mockRecess);
@@ -57,18 +56,18 @@ describe('RecessTask', function() {
 		mockTask = createMockTask();
 	});
 
-	afterEach(function() {
+	afterEach(function () {
 		mockTask = null;
 	});
 
-	it('should register itself with Grunt', function() {
+	it('should register itself with Grunt', function () {
 		RecessTask.registerWithGrunt.should.exist;
 
 		RecessTask.registerWithGrunt(grunt);
 		grunt.task._tasks[RecessTask.TASK_NAME].should.exist;
 	});
 
-	it('should merge options from a task with the defaults', function() {
+	it('should merge options from a task with the defaults', function () {
 		var task;
 
 		task = new RecessTask(mockTask);
@@ -80,7 +79,7 @@ describe('RecessTask', function() {
 		task.options.banner.should.equal('some test banner text');
 	});
 
-	it('should call the RECESS library to lint the files', function() {
+	it('should call the RECESS library to lint the files', function () {
 		var task;
 
 		task = new RecessTask(mockTask);
@@ -89,7 +88,7 @@ describe('RecessTask', function() {
 		mockRecess.should.have.been.called;
 	});
 
-	it('should call the RECESS library with the correct parameters', function() {
+	it('should call the RECESS library with the correct parameters', function () {
 		var task, expectedSrc, expectedOptions;
 
 		expectedSrc = mockTask.files[0].src;

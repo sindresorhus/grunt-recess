@@ -1,37 +1,20 @@
 # grunt-recess [![Build Status](https://travis-ci.org/sindresorhus/grunt-recess.svg?branch=master)](https://travis-ci.org/sindresorhus/grunt-recess)
 
-> Lint and minify CSS and LESS, using Twitter [RECESS][recess]
+> Lint and minify CSS and LESS using [RECESS](https://github.com/twitter/recess)
 
-##### Problems with the output should be submitted on Recess [issue tracker](https://github.com/twitter/recess/issues).
+*Issues with the output should be reported on the RECESS [issue tracker](https://github.com/twitter/recess/issues).*
 
 
-## Getting Started
-
-If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
+## Install
 
 ```sh
 $ npm install --save-dev grunt-recess
 ```
 
-Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
-```js
-grunt.loadNpmTasks('grunt-recess');
-```
+## Usage
 
-*Tip: the [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks) module makes it easier to load multiple grunt tasks.*
-
-[grunt]: http://gruntjs.com
-[Getting Started]: https://github.com/gruntjs/grunt/wiki/Getting-started
-
-
-## Documentation
-
-
-### Example usage
-
-
-#### Lint
+### Lint
 
 ```js
 recess: {
@@ -41,8 +24,7 @@ recess: {
 }
 ```
 
-
-#### Lint and compile
+### Lint and compile
 
 ```js
 recess: {
@@ -51,7 +33,7 @@ recess: {
 			compile: true
 		},
 		files: {
-			'dist/main.css': ['src/main.less']
+			'dist/main.css': 'src/main.less'
 		}
 	}
 }
@@ -61,28 +43,7 @@ A destination is only needed when `compile: true`. It won't output any warnings 
 You can also specify `.less` files and they will be compiled.
 
 
-#### Lint, compile and concat
-
-```js
-recess: {
-	dist: {
-		options: {
-			compile: true
-		},
-		files: {
-			'dist/combined.css': [
-				'src/main.css',
-				'src/component.css'
-			]
-		}
-	}
-}
-```
-
-You can specify multiple source files to concat them.
-
-
-### Options
+## Options
 
 ```js
 // Default
@@ -100,14 +61,6 @@ includePath: mixed			// Additional paths to look for `@import`'ed LESS files.  A
 ```
 
 
-## gulp
-
-You might want to check out [gulp-recess](https://github.com/sindresorhus/gulp-recess) which is a faster alternative to this task.
-
-
 ## License
 
 MIT © [Sindre Sorhus](http://sindresorhus.com)
-
-
-[recess]: https://github.com/twitter/recess

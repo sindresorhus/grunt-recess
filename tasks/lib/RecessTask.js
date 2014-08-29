@@ -42,8 +42,7 @@ RecessTask.TASK_DESCRIPTION = 'Lint and minify CSS and LESS using RECESS';
  */
 RecessTask.registerWithGrunt = function (grunt) {
 	grunt.registerMultiTask(RecessTask.TASK_NAME, RecessTask.TASK_DESCRIPTION, function () {
-		var task;
-		task = new RecessTask(this);
+		var task = new RecessTask(this);
 		task.run();
 	});
 };

@@ -1,3 +1,7 @@
+# Deprecated since RECESS is [no longer maintained](https://github.com/twitter/recess)
+
+---
+
 # grunt-recess [![Build Status](https://travis-ci.org/sindresorhus/grunt-recess.svg?branch=master)](https://travis-ci.org/sindresorhus/grunt-recess)
 
 > Lint and minify CSS and LESS using [RECESS](https://github.com/twitter/recess)
